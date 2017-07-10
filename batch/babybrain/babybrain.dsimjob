@@ -1,26 +1,25 @@
 # Optimisation job file for functional activation tests in BSX
 # specify which model to use
-model: bsx
+model: BS
 
 # Model inputs here come from a demand (always starting at 1) and
 # the systemic data
 input: u, constant, 1
-input: P_a, normal, 83.26892613, 8.914278038
-input: Pa_CO2, normal, 39.72972468, 2.940877252
 
 # Variable to optimise for
 var: HHb, normal, 0, 1
 var: HbO2, normal, 0, 1
+var: CCO, normal, 0, 1
 
 # Param_file
-param_file: ./bsx_pdist.txt
-param_select: *
+param_file: ./babybrain/params_dist.txt
+param_select: CBFn, CMRO2_n, P_a, P_an, a_frac_n, cytox_tot_tis, blood_frac, Xtot, Xtot_n, P_ic, P_ic_n
 # Include time as alias as per manual
 alias: t , t
-alias: HbO2, O2Hb
+
 
 # SA Specific settings
-job_mode: morris
+job_mode: fast
 nbatch: 6
 beta: 3
 timeout: 60
