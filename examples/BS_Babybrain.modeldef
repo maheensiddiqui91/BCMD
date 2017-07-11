@@ -377,7 +377,7 @@ b_n := cytox_tot - bred_n
 ## ~ dimensionless
 ## $blood_{hb}$
 ## + NIRS
-blood_hb := 0.0233 * 1000 / 4
+blood_hb := 0.04 * 1000 / 4
 
 ## Normal concentration of reduced cytochrome a3.
 ## ~ mM
