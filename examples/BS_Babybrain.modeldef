@@ -6,7 +6,7 @@
 ## @
 
 @input SaO2sup P_a u Pa_CO2
-@output f1 f2 f3 L R_Hi SaO2sup XOv O2c CBF P_a u J_O2 CMRO2 Vmca TOI HHb HbO2 HbT CCO Pa_CO2 r v_p v_u v_c v_o eta mu Dpsi H O2 a bred t
+@output f1 f2 f3 L R_Hi SaO2sup XOv O2c CBF P_a u J_O2 CMRO2 Vmca TOI DHbO2 DHHb HHb HbO2 HbT CCO Pa_CO2 r v_p v_u v_c v_o eta mu Dpsi H O2 a bred t
 
 # chemical reactions
 -> 1 / R_Hi [H] {L}
@@ -28,13 +28,13 @@ r : 0 = T_e + T_m - (P_1 - P_ic) * r
 XOv : 0 = CBF * (XOa - XOv) - J_O2
 
 
-DHHb = DHHb_offset + HHb-HHbn
-DHbO2 = DHbO2_offset + HbO2-HbO2n
+#DHHb = DHHb_offset + HHb-HHbn
+#DHbO2 = DHbO2_offset + HbO2-HbO2n
 
 # state variables
 
-DHHb_offset := 0
-DHbO2_offset := 0 
+#DHHb_offset := 0
+#DHbO2_offset := 0 
 
 ## Concentration of oxidised cytochrome c oxidase.
 ## ~ mM
@@ -589,9 +589,9 @@ H_n := 10^(3 - pH_mn)
 ## + Autoregulation
 h_n := sqrt(r_n * r_n + 2 * r_0 * h_0 + h_0 * h_0) - r_n
 
-HbO2n := (Vol_artn*XOa + Vol_ven*XOv_n)*blood_hb
+#HbO2n := (Vol_artn*XOa + Vol_ven*XOv_n)*blood_hb
 
-HHbn := (Vol_artn*Xa + Vol_ven*Xv_n)*blood_hb
+#HHbn := (Vol_artn*Xa + Vol_ven*Xv_n)*blood_hb
 
 ## Normal oxygen flux from blood to tissue.
 ## ~ mM s$^{-1}$
@@ -1113,9 +1113,9 @@ VArat_n := 3
 ## + NIRS
 Vol_artn := 1 / (1 + VArat_n)
 
-Vol_totn := 1
+#Vol_totn := 1
 
-Vol_venn := Vol_totn*(VArat_n/(1+VArat_n))
+#Vol_venn := Vol_totn*(VArat_n/(1+VArat_n))
 
 ## Fraction of brain tissue volume that is mitochondria.
 ## ~ dimensionless
@@ -1163,7 +1163,7 @@ Xa := Xtot*(1-SaO2sup)
 
 Xv_n := Xtot_n-XOv_n
 
-Vva := 0
+#Vva := 0
 ## Proportionality constant in calculation of driving forces due to concentration differences.
 ## Defined as $RT/F$, where $F$ is Faraday's constant, $R$ the ideal gas constant and $T$
 ## the absolute temperature.
