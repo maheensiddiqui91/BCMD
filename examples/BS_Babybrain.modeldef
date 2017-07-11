@@ -6,7 +6,7 @@
 ## @
 
 @input SaO2sup P_a u Pa_CO2
-@output f1 f2 f3 L R_Hi SaO2sup XOv O2c CBF P_a u J_O2 CMRO2 Vmca TOI DHbO2 DHHb HHb HbO2 HbT CCO Pa_CO2 r v_p v_u v_c v_o eta mu Dpsi H O2 a bred t
+@output f1 f2 f3 L R_Hi SaO2sup XOv O2c CBF P_a u J_O2 CMRO2 Vmca TOI HHb HbO2 HbT CCO Pa_CO2 r v_p v_u v_c v_o eta mu Dpsi H O2 a bred t
 
 # chemical reactions
 -> 1 / R_Hi [H] {L}
