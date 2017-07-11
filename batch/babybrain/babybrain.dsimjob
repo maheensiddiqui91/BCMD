@@ -19,7 +19,7 @@ alias: t , t
 
 
 # SA Specific settings
-job_mode: fast
+job_mode: morris
 nbatch: 6
 beta: 3
 timeout: 60

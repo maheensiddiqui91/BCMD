@@ -6,7 +6,7 @@
 ## @
 
 @input SaO2sup P_a u Pa_CO2
-@output f1 f2 f3 L R_Hi SaO2sup XOv O2c CBF P_a u J_O2 CMRO2 Vmca TOI DHbO2 DHHb HHb HbO2 HbT CCO Pa_CO2 r v_p v_u v_c v_o eta mu Dpsi H O2 a bred t
+@output f1 f2 f3 L R_Hi SaO2sup XOv O2c CBF P_a u J_O2 CMRO2 Vmca TOI HHb HbO2 HbT CCO Pa_CO2 r v_p v_u v_c v_o eta mu Dpsi H O2 a bred t
 
 # chemical reactions
 -> 1 / R_Hi [H] {L}
@@ -27,14 +27,7 @@ O2c : 0 = phi * (ScO2 / (1 - ScO2))^(1 / n_h) - O2c
 r : 0 = T_e + T_m - (P_1 - P_ic) * r
 XOv : 0 = CBF * (XOa - XOv) - J_O2
 
-
-#DHHb = DHHb_offset + HHb-HHbn
-#DHbO2 = DHbO2_offset + HbO2-HbO2n
-
 # state variables
-
-#DHHb_offset := 0
-#DHbO2_offset := 0 
 
 ## Concentration of oxidised cytochrome c oxidase.
 ## ~ mM
@@ -345,14 +338,13 @@ Vmca = CBF * CBFscale
 Vol_art = Vol_artn * (r / r_n)^(2)
 
 
-
 # parameters
 
 ## Normal oxidised fraction of Cu$_A$.
 ## ~ dimensionless
 ## $Cu_{a,frac,n}$
 ## + Metabolism
-a_frac_n := 0.844226
+a_frac_n := 0.805518
 
 ## Normal concentration of oxidised cytochrome c oxidase.
 ## ~ mM
@@ -377,7 +369,7 @@ b_n := cytox_tot - bred_n
 ## ~ dimensionless
 ## $blood_{hb}$
 ## + NIRS
-blood_hb := 0.04 * 1000 / 4
+blood_hb := 0.0233 * 1000 / 4
 
 ## Normal concentration of reduced cytochrome a3.
 ## ~ mM
@@ -444,7 +436,7 @@ ck2 := 0.02
 ## ~ mM s$^{-1}$
 ## $CMRO_{2,n}$
 ## + Link
-CMRO2_n := 0.032445
+CMRO2_n := 0.0324
 
 ## Control parameter representing the action of Complex V inhibitors.
 ## ~ dimensionless
@@ -462,7 +454,7 @@ cytox_tot = cytox_tot_tis / Vol_mit
 ## ~ mM
 ## $CCO_{tis}$
 ## + Metabolism
-cytox_tot_tis := 0.008201
+cytox_tot_tis := 0.00777
 
 ## Scale parameter for the dependence of NADH redox potential on demand.
 ## ~ dimensionless
@@ -588,10 +580,6 @@ H_n := 10^(3 - pH_mn)
 ## ~ cm
 ## + Autoregulation
 h_n := sqrt(r_n * r_n + 2 * r_0 * h_0 + h_0 * h_0) - r_n
-
-#HbO2n := (Vol_artn*XOa + Vol_ven*XOv_n)*blood_hb
-
-#HHbn := (Vol_artn*Xa + Vol_ven*Xv_n)*blood_hb
 
 ## Normal oxygen flux from blood to tissue.
 ## ~ mM s$^{-1}$
@@ -851,12 +839,12 @@ p_C3 := 4
 ## Intracranial pressure.
 ## ~ mm Hg
 ## + Autoregulation
-P_ic := 5
+P_ic := 7.0
 
 ## Normal intracranial pressure.
 ## ~ mm Hg
 ## + Autoregulation
-P_icn := 5
+P_icn := 7.0
 
 ## Total protons removed from the mitochondrial matrix by the three modelled
 ## electron transport reactions.
@@ -1113,10 +1101,6 @@ VArat_n := 3
 ## + NIRS
 Vol_artn := 1 / (1 + VArat_n)
 
-#Vol_totn := 1
-
-#Vol_venn := Vol_totn*(VArat_n/(1+VArat_n))
-
 ## Fraction of brain tissue volume that is mitochondria.
 ## ~ dimensionless
 ## + Metabolism
@@ -1151,23 +1135,17 @@ XOv_n := (CBFn * XOa_n - J_O2n) / CBFn
 ## ~ mM
 ## $Hb_{tot}$
 ## + Oxygen
-Xtot := 7.063
+Xtot := 7.0
 
 ## Normal total concentration of haemoglobin O$_2$ binding sites in blood (4 times haemoglobin concentration).
 ## ~ mM
 ## $Hb_{tot,n}$
 ## + Oxygen
-Xtot_n := 7.063
+Xtot_n := 7.0
 
-Xa := Xtot*(1-SaO2sup)
-
-Xv_n := Xtot_n-XOv_n
-
-#Vva := 0
 ## Proportionality constant in calculation of driving forces due to concentration differences.
 ## Defined as $RT/F$, where $F$ is Faraday's constant, $R$ the ideal gas constant and $T$
 ## the absolute temperature.
 ## ~ mV
 ## + Metabolism
 Z := 59.028
-
