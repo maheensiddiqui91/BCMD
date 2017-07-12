@@ -15,4 +15,3 @@ CMRO2_n, uniform, 0.02, 0.07, 0.034
 CVinh, uniform, 0, 1, 1
 cytox_tot_tis, uniform, 0.0022, 0.0099, 0.0055
 D_NADH, uniform, 0.005, 0.025, 0.01
-Dp3_corr, uniform, -10, -40, -25
