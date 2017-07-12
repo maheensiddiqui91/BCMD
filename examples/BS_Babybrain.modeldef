@@ -5,7 +5,7 @@
 ## The full BrainSignals model refactored in BSRF form.
 ## @
 
-@input u 
+@input u
 @output f1 f2 f3 L R_Hi SaO2sup XOv O2c CBF P_a u J_O2 CMRO2 Vmca TOI HHb HbO2 HbT CCO Pa_CO2 r v_p v_u v_c v_o eta mu Dpsi H O2 a bred t
 
 # chemical reactions
@@ -344,7 +344,7 @@ Vol_art = Vol_artn * (r / r_n)^(2)
 ## ~ dimensionless
 ## $Cu_{a,frac,n}$
 ## + Metabolism
-a_frac_n := 0.8
+a_frac_n := 0.805518
 
 ## Normal concentration of oxidised cytochrome c oxidase.
 ## ~ mM
@@ -369,7 +369,7 @@ b_n := cytox_tot - bred_n
 ## ~ dimensionless
 ## $blood_{hb}$
 ## + NIRS
-blood_hb := 0.04 * 1000 / 4
+blood_hb := 0.0233 * 1000 / 4
 
 ## Normal concentration of reduced cytochrome a3.
 ## ~ mM
@@ -436,7 +436,7 @@ ck2 := 0.02
 ## ~ mM s$^{-1}$
 ## $CMRO_{2,n}$
 ## + Link
-CMRO2_n := 0.034
+CMRO2_n := 0.0324
 
 ## Control parameter representing the action of Complex V inhibitors.
 ## ~ dimensionless
@@ -454,7 +454,7 @@ cytox_tot = cytox_tot_tis / Vol_mit
 ## ~ mM
 ## $CCO_{tis}$
 ## + Metabolism
-cytox_tot_tis := 0.0055
+cytox_tot_tis := 0.00777
 
 ## Scale parameter for the dependence of NADH redox potential on demand.
 ## ~ dimensionless
@@ -1135,13 +1135,13 @@ XOv_n := (CBFn * XOa_n - J_O2n) / CBFn
 ## ~ mM
 ## $Hb_{tot}$
 ## + Oxygen
-Xtot := 9.1
+Xtot := 7.0
 
 ## Normal total concentration of haemoglobin O$_2$ binding sites in blood (4 times haemoglobin concentration).
 ## ~ mM
 ## $Hb_{tot,n}$
 ## + Oxygen
-Xtot_n := 9.1
+Xtot_n := 7.0
 
 ## Proportionality constant in calculation of driving forces due to concentration differences.
 ## Defined as $RT/F$, where $F$ is Faraday's constant, $R$ the ideal gas constant and $T$
