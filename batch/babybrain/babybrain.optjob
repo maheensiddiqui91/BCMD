@@ -13,11 +13,7 @@ var: CCO, normal, 0, 1
 
 # Param_file
 param_file: ./babybrain/params_dist.txt
-<<<<<<< HEAD
 param_select: Vol_mit, blood_hb, c3, C_buffi, C_im, ck1, ck2, CVinh, cytox_tot_tis, D_NADH, Dp_CV0, dpH, E_c0, k30, k_aut, L_CV0, NADpool, p_tot, r_CV, Dp3_corr, E_N0
-=======
-param_select: *
->>>>>>> bd7b818c70616904bd7b9f0bbedaf40b606654a1
 
 # Include time as alias as per manual
 alias: t , t
