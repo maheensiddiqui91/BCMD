@@ -1,6 +1,6 @@
 # Optimisation job file for functional activation tests in BSX
 # specify which model to use
-model: BS_Babybrain
+model: BS_Babybrain_test
 
 # Model inputs here come from a demand (always starting at 1) and
 # the systemic data
@@ -13,7 +13,7 @@ var: CCO, normal, 0, 1
 
 # Param_file
 param_file: ./babybrain/params_dist.txt
-param_select: cytox_tot_tis, Xtot, Xtot_n, CMR02_n, a_frac_n, Vol_mit, blood_hb
+param_select: Vol_mit, blood_hb, c3, C_buffi, C_im, ck1, ck2, CVinh, cytox_tot_tis, D_NADH, Dp_CV0, dpH, E_c0, k30, k_aut, L_CV0, NADpool, p_tot, r_CV, Dp3_corr, E_N0
 
 # Include time as alias as per manual
 alias: t , t
